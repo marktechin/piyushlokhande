@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyush Lokhande | Meta, Google & LinkedIn Ads Specialist</title>
+    <meta name="description" content="Piyush Lokhande helps brands, clinics and creators scale with Meta Ads, Google Ads, LinkedIn Ads, lead generation funnels, content strategy and digital marketing.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
+        html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+        
+        .full-hero { min-height: 100vh; min-height: 100dvh; display: flex; align-items: center; justify-content: center; position: relative; background: #020617; }
+
+        /* Social Sidebar */
+        .social-sidebar { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); z-index: 40; display: flex; flex-direction: column; gap: 20px; }
+        .social-sidebar a { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); opacity: 0.75; transition: 0.3s; }
+        .social-sidebar a:hover { opacity: 1; transform: scale(1.2); }
+        .social-sidebar img { width: 24px; height: 24px; object-fit: contain; }
+
+        /* HERO ANIMATIONS */
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow { animation: spin-slow 12s linear infinite; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+
+        .mascot-glow { background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%); }
+
+        .hero-galaxy {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            background:
+                linear-gradient(118deg, rgba(2,6,23,0.98) 0%, rgba(8,13,31,0.94) 42%, rgba(17,24,39,0.9) 62%, rgba(2,6,23,0.98) 100%),
+                radial-gradient(ellipse at 72% 36%, rgba(59,130,246,0.3), transparent 46%),
+                radial-gradient(ellipse at 28% 72%, rgba(20,184,166,0.18), transparent 48%),
+                radial-gradient(circle at 46% 28%, rgba(255,255,255,0.08), transparent 18%);
+        }
+        .hero-galaxy::before,
+        .hero-galaxy::after {
+            content: "";
+            position: absolute;
+            inset: -20%;
+            background-repeat: repeat;
+            will-change: transform, opacity;
+        }
+        .hero-galaxy::before {
+            background-image:
+                radial-gradient(circle, rgba(255,255,255,0.9) 0 1px, transparent 1.5px),
+                radial-gradient(circle, rgba(147,197,253,0.72) 0 1px, transparent 1.8px),
+                radial-gradient(circle, rgba(255,255,255,0.45) 0 1px, transparent 1.4px);
+            background-size: 86px 86px, 138px 138px, 42px 42px;
+            background-position: 0 0, 36px 54px, 18px 24px;
+            opacity: 0.78;
+            animation: galaxy-drift 30s linear infinite;
+        }
+        .hero-galaxy::after {
+            background:
+                linear-gradient(105deg, transparent 8%, rgba(37,99,235,0.04) 24%, rgba(59,130,246,0.3) 43%, rgba(20,184,166,0.19) 56%, transparent 76%),
+                linear-gradient(74deg, transparent 22%, rgba(168,85,247,0.24) 48%, rgba(96,165,250,0.14) 61%, transparent 78%);
+            filter: blur(18px);
+            opacity: 0.88;
+            transform: rotate(-10deg) scale(1.16);
+            animation: galaxy-flow 16s ease-in-out infinite alternate;
+        }
+        .hero-comets {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .hero-comets span {
+            position: absolute;
+            width: 170px;
+            height: 1px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.96), rgba(96,165,250,0.34), transparent);
+            opacity: 0;
+            transform: rotate(-24deg);
+            animation: comet-pass 7s linear infinite;
+        }
+        .hero-comets span:nth-child(1) { top: 18%; left: 78%; animation-delay: 0.4s; }
+        .hero-comets span:nth-child(2) { top: 38%; left: 62%; animation-delay: 2.7s; animation-duration: 8.5s; }
+        .hero-comets span:nth-child(3) { top: 62%; left: 88%; animation-delay: 5.2s; animation-duration: 9.5s; }
+        .hero-comets span:nth-child(4) { top: 82%; left: 48%; animation-delay: 4.1s; animation-duration: 10s; }
+        .hero-comets span:nth-child(5) { top: 28%; left: 92%; animation-delay: 6.5s; animation-duration: 8s; width: 130px; }
+        .hero-comets span:nth-child(6) { top: 72%; left: 70%; animation-delay: 1.8s; animation-duration: 11s; width: 210px; }
+        .hero-aurora {
+            position: absolute;
+            inset: auto -10% 0 -10%;
+            z-index: 1;
+            height: 58%;
+            pointer-events: none;
+            background:
+                linear-gradient(100deg, transparent 8%, rgba(59,130,246,0.2) 32%, rgba(20,184,166,0.22) 44%, rgba(168,85,247,0.16) 58%, transparent 82%);
+            filter: blur(32px);
+            opacity: 0.86;
+            transform: skewY(-7deg);
+            animation: aurora-wave 12s ease-in-out infinite alternate;
+        }
+        .hero-galaxy-shade {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background:
+                linear-gradient(90deg, rgba(2,6,23,0.72), rgba(2,6,23,0.18) 52%, rgba(2,6,23,0.54)),
+                linear-gradient(180deg, rgba(2,6,23,0.28), transparent 36%, rgba(2,6,23,0.64));
+            pointer-events: none;
+        }
+        @keyframes galaxy-drift {
+            from { transform: translate3d(0, 0, 0); }
+            to { transform: translate3d(-88px, 88px, 0); }
+        }
+        @keyframes galaxy-flow {
+            from { transform: rotate(-12deg) scale(1.08) translateX(-3%); opacity: 0.5; }
+            to { transform: rotate(-5deg) scale(1.24) translateX(3%); opacity: 0.82; }
+        }
+        @keyframes comet-pass {
+            0%, 64% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-24deg); }
+            70% { opacity: 1; }
+            100% { opacity: 0; transform: translate3d(-520px, 250px, 0) rotate(-24deg); }
+        }
+        @keyframes aurora-wave {
+            from { transform: translateX(-3%) skewY(-7deg); opacity: 0.62; }
+            to { transform: translateX(4%) skewY(-4deg); opacity: 0.95; }
+        }
+
+        /* INFINITE LOOP FIX */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-container { overflow: hidden; user-select: none; display: flex; position: relative; }
+        .marquee-content { 
+            display: flex; 
+            width: max-content; 
+            animation: marquee 30s linear infinite; 
+            gap: 60px; 
+            align-items: center; 
+        }
+        @media (min-width: 768px) { .marquee-content { gap: 100px; } }
+
+        .marquee-content img { height: 40px; width: auto; transition: 0.3s; flex-shrink: 0; }
+        .marquee-content img:hover { transform: scale(1.1); }
+
+        .service-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: white; border: 1px solid #e2e8f0; }
+        .service-card:hover { transform: translateY(-12px); border-color: #2563eb; }
+        .service-card:hover .icon-box { background: #2563eb; color: white; transform: rotate(-10deg); }
+
+        .testimonial-shell {
+            position: relative;
+            overflow: hidden;
+            border-radius: 32px;
+            background:
+                radial-gradient(circle at 14% 18%, rgba(37,99,235,0.16), transparent 34%),
+                radial-gradient(circle at 86% 28%, rgba(20,184,166,0.12), transparent 30%),
+                linear-gradient(135deg, rgba(255,255,255,0.96), rgba(248,250,252,0.82));
+            border: 1px solid rgba(148,163,184,0.28);
+            box-shadow: 0 28px 90px rgba(15,23,42,0.12);
+        }
+        .testimonial-shell::before {
+            content: "";
+            position: absolute;
+            inset: 18px;
+            border: 1px solid rgba(37,99,235,0.12);
+            border-radius: 24px;
+            pointer-events: none;
+        }
+        #testimonial-container {
+            position: relative;
+            min-height: 430px;
+        }
+        .testimonial-slide {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 52px 24px;
+            opacity: 0;
+            transform: translate3d(44px, 0, 0) scale(0.98);
+            filter: blur(5px);
+            pointer-events: none;
+            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s ease;
+        }
+        .testimonial-slide.active {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+            filter: blur(0);
+            pointer-events: auto;
+            z-index: 2;
+        }
+        .testimonial-slide.leaving {
+            opacity: 0;
+            transform: translate3d(-44px, 0, 0) scale(0.98);
+            filter: blur(5px);
+            z-index: 1;
+        }
+        .testimonial-avatar {
+            position: relative;
+            isolation: isolate;
+        }
+        .testimonial-avatar::before {
+            content: "";
+            position: absolute;
+            inset: -14px;
+            border-radius: 999px;
+            background: conic-gradient(from 120deg, #2563eb, #14b8a6, #0f172a, #2563eb);
+            opacity: 0;
+            transform: scale(0.82) rotate(-32deg);
+            transition: opacity 0.7s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+            z-index: -1;
+        }
+        .testimonial-slide.active .testimonial-avatar::before {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            animation: testimonial-ring 6s linear infinite;
+        }
+        .testimonial-slide.active .testimonial-avatar img {
+            animation: testimonial-pop 0.9s cubic-bezier(0.2, 1.35, 0.32, 1) both;
+        }
+        .testimonial-avatar img {
+            padding: 10px;
+            background: #fff;
+            object-fit: contain;
+        }
+        .testimonial-quote {
+            position: relative;
+        }
+        .testimonial-quote::before {
+            content: "\"";
+            position: absolute;
+            left: 50%;
+            top: -58px;
+            transform: translateX(-50%);
+            color: rgba(37,99,235,0.12);
+            font-size: clamp(78px, 14vw, 130px);
+            font-weight: 900;
+            line-height: 1;
+            font-style: normal;
+            z-index: -1;
+        }
+        .testimonial-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+        .testimonial-nav {
+            width: 48px;
+            height: 48px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #0f172a;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 900;
+            line-height: 1;
+            box-shadow: 0 14px 30px rgba(15,23,42,0.22);
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+        .testimonial-nav:hover {
+            transform: translateY(-3px);
+            background: #2563eb;
+        }
+        .testimonial-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 8px;
+        }
+        .testimonial-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.22);
+            transition: width 0.35s ease, background 0.35s ease, transform 0.35s ease;
+        }
+        .testimonial-dot.active {
+            width: 30px;
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+        .testimonial-progress {
+            position: absolute;
+            left: 28px;
+            right: 28px;
+            bottom: 22px;
+            height: 3px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.08);
+            overflow: hidden;
+        }
+        .testimonial-progress span {
+            display: block;
+            height: 100%;
+            width: 0;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #2563eb, #14b8a6);
+            animation: testimonial-progress 7s linear infinite;
+        }
+        .testimonial-shell:hover .testimonial-progress span {
+            animation-play-state: paused;
+        }
+        @keyframes testimonial-ring {
+            to { transform: scale(1) rotate(360deg); }
+        }
+        @keyframes testimonial-pop {
+            0% { transform: scale(0.72); opacity: 0; }
+            65% { transform: scale(1.08); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes testimonial-progress {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @media (min-width: 768px) {
+            #testimonial-container { min-height: 470px; }
+            .testimonial-slide { padding: 72px 68px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .testimonial-slide,
+            .testimonial-avatar::before,
+            .testimonial-progress span,
+            .testimonial-nav,
+            .testimonial-dot {
+                transition: none;
+                animation: none !important;
+            }
+        }
+        
+        #hero-title, #hero-sub, #hero-btn { opacity: 0; transform: translateY(20px); }
+
+  
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden; 
+            background: #020617; 
+        }
+        
+        .full-hero { 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            position: relative; 
+            padding-top: 80px;
+        }
+
+        /* Hero Animations */
+        @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .animate-spin-slow { animation: spin-slow 15s linear infinite; }
+
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+
+        .mascot-glow { background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%); }
+
+        /* Eye Tracking System */
+        .eyes-container {
+            position: absolute;
+            top: 35%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: clamp(16px, 4.7vw, 30px);
+            pointer-events: none;
+            z-index: 50;
+        }
+        .eye {
+            width: clamp(12px, 3.2vw, 20px);
+            height: clamp(12px, 3.2vw, 20px);
+            background: white;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 3px rgba(0,0,0,0.5);
+        }
+        .pupil {
+            width: 45%;
+            height: 45%;
+            background: #000;
+            border-radius: 50%;
+            position: absolute;
+            transition: transform 0.05s ease-out;
+        }
+
+        .insta-phone {
+            position: relative;
+            width: min(390px, 88vw);
+            padding: 13px;
+            border: 1px solid rgba(255,255,255,0.22);
+            border-radius: 42px;
+            background: linear-gradient(145deg, #20242f, #07090f 58%);
+            box-shadow: 0 36px 100px rgba(0,0,0,0.52), 0 0 70px rgba(255,47,134,0.16);
+        }
+        .insta-phone::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            width: 112px;
+            height: 28px;
+            transform: translateX(-50%);
+            border-radius: 999px;
+            background: #07090f;
+            z-index: 4;
+        }
+        .insta-screen {
+            position: relative;
+            overflow: hidden;
+            border-radius: 31px;
+            background: #05070b;
+            aspect-ratio: 1179 / 2398;
+        }
+        .insta-screen img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .insta-follow-hotspot {
+            position: absolute;
+            top: 36.2%;
+            left: 4.2%;
+            width: 42.7%;
+            height: 4.25%;
+            border-radius: 11px;
+            z-index: 5;
+        }
+        .mobile-nav-scroll,
+        .case-study-track {
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .mobile-nav-scroll::-webkit-scrollbar,
+        .case-study-track::-webkit-scrollbar {
+            display: none;
+        }
+        .case-study-card iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        @media (max-width: 767px) {
+            html { scroll-padding-top: 116px; }
+            nav h1 {
+                max-width: 54vw;
+                font-size: 1rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .full-hero {
+                min-height: auto;
+                padding-top: 132px;
+            }
+            .hero-galaxy::before {
+                opacity: 0.45;
+            }
+            .hero-comets span {
+                width: 120px;
+            }
+            .case-study-track {
+                display: flex !important;
+                grid-template-columns: none !important;
+                gap: 18px !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                scroll-snap-type: x mandatory;
+                padding: 4px 18px 24px;
+                margin-left: -24px;
+                margin-right: -24px;
+                width: calc(100% + 48px);
+            }
+            .case-study-card {
+                flex: 0 0 min(82vw, 330px) !important;
+                width: min(82vw, 330px) !important;
+                max-width: min(82vw, 330px) !important;
+                scroll-snap-align: center;
+            }
+            .case-study-arrow {
+                width: 46px;
+                height: 46px;
+                border-radius: 999px;
+                background: #0f172a;
+                color: #fff;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 22px;
+                font-weight: 900;
+                box-shadow: 0 14px 30px rgba(15,23,42,0.18);
+            }
+            .case-study-card.featured {
+                transform: none;
+            }
+            #testimonial-container {
+                min-height: 500px;
+            }
+            .testimonial-shell::before {
+                inset: 10px;
+            }
+            .testimonial-slide {
+                padding: 46px 18px 56px;
+            }
+            .founder-badge {
+                left: 14px;
+                right: 14px;
+                bottom: -32px;
+                padding: 22px;
+                border-radius: 24px;
+            }
+        }
+        /* Initial state fix (Content hide na ho) */
+        #hero-title, #hero-sub, #hero-btn { opacity: 1; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-white text-[10px] font-bold tracking-[0.3em] uppercase">
+            <h1 class="text-xl font-black italic tracking-tighter normal-case leading-none">Piyush Lokhande<span class="text-blue-500">.in</span></h1>
+            <div class="hidden md:flex gap-6 lg:gap-10">
+                <a href="#founder" class="hover:text-blue-500 transition">The Founder</a>
+                <a href="#instagram" class="hover:text-blue-500 transition">Instagram</a>
+                <a href="#agency" class="hover:text-blue-500 transition">The Agency</a>
+                <a href="#services" class="hover:text-blue-500 transition">Services</a>
+                <a href="#work" class="hover:text-blue-500 transition">Case Studies</a>
+                <a href="#testimonials" class="hover:text-blue-500 transition">Testimonials</a>
+            </div>
+            <a href="https://wa.me/919243944410" class="bg-blue-600 px-4 md:px-6 py-2 rounded-full hover:bg-white hover:text-black transition uppercase tracking-widest text-[8px] md:text-[9px] shrink-0">Get in Touch</a>
+        </div>
+        <div class="mobile-nav-scroll md:hidden flex gap-5 overflow-x-auto px-6 pb-3 text-white text-[9px] font-black uppercase tracking-widest">
+            <a href="#founder" class="shrink-0 hover:text-blue-400 transition">Founder</a>
+            <a href="#instagram" class="shrink-0 hover:text-blue-400 transition">Instagram</a>
+            <a href="#agency" class="shrink-0 hover:text-blue-400 transition">Agency</a>
+            <a href="#services" class="shrink-0 hover:text-blue-400 transition">Services</a>
+            <a href="#work" class="shrink-0 hover:text-blue-400 transition">Videos</a>
+            <a href="#testimonials" class="shrink-0 hover:text-blue-400 transition">Testimonials</a>
+        </div>
+    </nav>
+
+    <section class="full-hero overflow-hidden text-white pt-24 pb-12 bg-slate-950">
+        <div class="hero-galaxy" aria-hidden="true"></div>
+        <div class="hero-aurora" aria-hidden="true"></div>
+        <div class="hero-comets" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="hero-galaxy-shade" aria-hidden="true"></div>
+        <div class="social-sidebar hidden md:flex">
+            <a href="https://instagram.com/piyushlokhande_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=instagram.com" alt="Instagram">
+            </a>
+            <a href="https://www.youtube.com/@Piyushlokhande-yt1" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=youtube.com" alt="YouTube">
+            </a>
+            <a href="https://linkedin.com/in/piyush-lokhande-59828b215" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=linkedin.com" alt="LinkedIn">
+            </a>
+            <a href="mailto:workwithpiyushlokhande@gmail.com" aria-label="Email">
+                <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico" alt="Gmail">
+            </a>
+        </div>
+
+        <div class="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-900/20 rounded-full blur-[120px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="text-left order-2 lg:order-1">
+                <span class="inline-block bg-blue-600/20 text-blue-400 px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase mb-6 border border-blue-500/30">
+                    Performance Marketing Specialist
+                </span>
+                <h2 id="hero-title" class="text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-black tracking-tighter leading-[0.92] md:leading-[0.9] mb-8 uppercase italic">
+                    Scale With <span class="text-blue-600">Paid Ads</span><br>& Content.
+                </h2>
+                <p id="hero-sub" class="text-slate-400 text-lg md:text-xl max-w-xl mb-10 font-medium leading-relaxed">
+                    I help brands, clinics and creators grow with Meta Ads, Google Ads, LinkedIn Ads, lead generation funnels, content strategy and conversion-focused digital marketing.
+                </p>
+                <div id="hero-btn">
+                    <a href="https://wa.me/919243944410" class="inline-flex justify-center bg-blue-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-black uppercase tracking-widest hover:bg-white hover:text-black transition text-[10px] md:text-xs shadow-[0_0_30px_rgba(37,99,235,0.4)]">
+                        Book A Growth Call
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative flex justify-center items-center order-1 lg:order-2 py-12">
+                <div class="relative w-72 h-72 md:w-[500px] md:h-[500px]">
+                    <div class="absolute inset-0 border-[2px] border-dashed border-blue-500/40 rounded-full animate-spin-slow"></div>
+                    <div class="absolute inset-8 border border-white/5 rounded-full"></div>
+                    <div class="absolute inset-0 mascot-glow rounded-full blur-3xl opacity-50"></div>
+                    <div class="absolute inset-0 flex justify-center items-center animate-float">
+                        <div class="relative w-4/5">
+                            <img src="https://img.freepik.com/free-vector/hand-drawn-nft-style-ape-illustration_23-2149622021.jpg" alt="Mascot" class="w-full h-auto rounded-full drop-shadow-[0_25px_60px_rgba(37,99,235,0.6)]">
+                            <div class="eyes-container">
+                                <div class="eye">
+                                    <div class="pupil"></div>
+                                </div>
+                                <div class="eye">
+                                    <div class="pupil"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-white text-black p-4 rounded-2xl shadow-2xl rotate-6 hidden md:block border-2 border-blue-600">
+                        <p class="text-[10px] font-black uppercase tracking-tight">Strategy</p>
+                        <p class="text-xl font-black italic text-blue-600">100% RESULTS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="py-12 bg-white border-y marquee-container">
+        <div class="marquee-content">
+            <img src="Mahindra logo.JPG" alt="Brand 1">
+            <img src="sonali logo.jpg" alt="Brand 2">
+            <img src="shlay.jpg" alt="Brand 3">
+            <img src="dentask logo.JPG" alt="Brand 4">
+            <img src="furnito.jpg" alt="Brand 5">
+            <img src="bishnoi dental.jpg" alt="Brand 6">
+            <img src="nkd logo.jpg" alt="Brand 7">
+            <img src="pebbel.jpg" alt="Brand 8">
+            <img src="IMG_9914.jpg" alt="Brand 9">
+            <img src="marktech.jpg" alt="Brand 10">
+            <img src="Mahindra logo.JPG" alt="Brand 1">
+            <img src="sonali logo.jpg" alt="Brand 2">
+            <img src="shlay.jpg" alt="Brand 3">
+            <img src="dentask logo.JPG" alt="Brand 4">
+            <img src="furnito.jpg" alt="Brand 5">
+        </div>
+    </div>
+
+    <section id="founder" class="py-16 md:py-32 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+        <div class="relative">
+            <div class="aspect-[4/5] bg-slate-200 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition duration-700">
+                <img src="piyushlokhande.jpg" class="w-full h-full object-cover" alt="Piyush Lokhande" loading="lazy">
+            </div>
+            <div class="founder-badge absolute -bottom-10 -left-10 bg-blue-600 text-white p-10 rounded-[2.5rem] shadow-2xl">
+                <p class="text-2xl md:text-4xl font-black italic leading-none">Piyush Lokhande</p>
+                <p class="text-[8px] md:text-[10px] font-bold uppercase tracking-[0.3em] opacity-80 mt-1 md:mt-2">The Founder</p>
+            </div>
+        </div>
+        <div>
+            <span class="text-blue-600 font-black uppercase tracking-widest text-[10px] md:text-xs">Digital Growth Strategist</span>
+            <h3 class="text-3xl md:text-5xl font-black mt-4 mb-6 md:mb-8 leading-tight uppercase tracking-tighter italic text-left">Building Brands With<br> Ads, Content & Strategy.</h3>
+            <p class="text-slate-600 text-sm md:text-lg mb-6 leading-relaxed text-left">
+                I am Piyush Lokhande, a digital growth strategist and performance marketing specialist from Indore. I help brands, clinics and creators grow through Meta Ads, Google Ads, LinkedIn Ads, content strategy, lead generation and conversion-focused marketing systems. My work blends consumer psychology, creative storytelling and data-backed advertising to turn attention into trust, leads and revenue.
+            </p>
+            <div class="flex gap-8 md:gap-12 border-t pt-10 font-black italic">
+                <div>
+                    <h5 class="text-2xl md:text-4xl"><span class="counter" data-target="5">0</span>+</h5>
+                    <p class="text-[8px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2">Years In Marketing</p>
+                </div>
+                <div>
+                    <h5 class="text-2xl md:text-4xl">Indore</h5>
+                    <p class="text-[8px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2">Serving Brands Online</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="instagram" class="relative overflow-hidden bg-slate-950 text-white py-16 md:py-28 px-6">
+        <div class="absolute top-16 left-0 w-80 h-80 bg-pink-500/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-10 right-0 w-96 h-96 bg-violet-600/20 rounded-full blur-[120px]"></div>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 md:gap-20 items-center relative z-10">
+            <div>
+                <span class="inline-block bg-white/10 text-pink-200 px-4 py-2 rounded-full text-[10px] font-black tracking-widest uppercase mb-6 border border-white/10">
+                    Instagram Creator Profile
+                </span>
+                <h3 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8">
+                    Follow My <span class="text-pink-500">Content</span> Journey.
+                </h3>
+                <p class="text-slate-300 text-base md:text-xl leading-relaxed font-medium max-w-2xl mb-8">
+                    Digital marketing, business stories, tech, AI content and brand growth ideas. I create practical content for creators and brands who want to build serious online presence.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+                    <div class="border border-white/10 bg-white/[0.06] rounded-lg p-5">
+                        <p class="text-sm font-black text-white mb-2">Digital Marketing</p>
+                        <p class="text-xs leading-relaxed text-slate-400 font-semibold">Meta ads, ROAS, strategy and growth lessons.</p>
+                    </div>
+                    <div class="border border-white/10 bg-white/[0.06] rounded-lg p-5">
+                        <p class="text-sm font-black text-white mb-2">AI + Content</p>
+                        <p class="text-xs leading-relaxed text-slate-400 font-semibold">Useful AI tools and content systems.</p>
+                    </div>
+                    <div class="border border-white/10 bg-white/[0.06] rounded-lg p-5">
+                        <p class="text-sm font-black text-white mb-2">Business Stories</p>
+                        <p class="text-xs leading-relaxed text-slate-400 font-semibold">Brand breakdowns and personal branding ideas.</p>
+                    </div>
+                </div>
+                <a href="https://instagram.com/piyushlokhande_" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-gradient-to-r from-pink-500 to-violet-600 text-white px-9 py-5 rounded-full font-black uppercase tracking-widest text-xs shadow-[0_20px_60px_rgba(236,72,153,0.28)] hover:scale-105 transition">
+                    Follow on Instagram
+                </a>
+            </div>
+
+            <div class="relative flex justify-center lg:justify-end">
+                <div class="insta-phone">
+                    <div class="insta-screen">
+                        <img src="instagram-profile.png" alt="Piyush Lokhande Instagram profile screenshot" loading="lazy">
+                        <a class="insta-follow-hotspot" href="https://instagram.com/piyushlokhande_" target="_blank" rel="noopener noreferrer" aria-label="Follow Piyush Lokhande on Instagram"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <section id="agency" class="py-16 md:py-32 bg-slate-950 text-white overflow-hidden px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 md:mb-16">
+                <span class="text-blue-500 font-black uppercase tracking-widest text-xs">Performance Marketing Agency</span>
+                <h3 class="text-4xl md:text-6xl lg:text-7xl font-black mt-5 mb-6 leading-none uppercase italic tracking-tighter">
+                    Real Campaign <span class="text-blue-500">Results.</span>
+                </h3>
+                <p class="text-slate-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+                    A proof-first view of paid ads, content performance and conversion results across Meta Ads, Google Ads and LinkedIn Ads.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-6 mb-8 md:mb-10">
+                <div class="border border-white/10 bg-white/[0.045] rounded-lg overflow-hidden">
+                    <div class="aspect-[16/10] bg-slate-900 border-b border-white/10 flex items-center justify-center text-center px-6">
+                        <div>
+                            <p class="text-blue-400 text-[10px] font-black uppercase tracking-[0.28em] mb-3">Result Screenshot</p>
+                            <p class="text-white text-xl font-black uppercase italic leading-none">Meta Ads Proof</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-4 mb-5">
+                            <span class="text-[10px] font-black uppercase tracking-widest text-blue-400">Meta Ads</span>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-slate-500">Leads / Sales</span>
+                        </div>
+                        <h6 class="text-4xl md:text-5xl text-white font-black italic leading-none mb-5">₹<span class="counter" data-target="50">0</span>L+</h6>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-5">Paid Ad Spend Managed</p>
+                        <div class="grid grid-cols-2 gap-3 text-center">
+                            <div class="bg-white/5 border border-white/10 rounded-lg p-3">
+                                <p class="text-lg font-black text-blue-400">--x</p>
+                                <p class="text-[9px] font-bold uppercase tracking-widest text-slate-500">ROAS</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded-lg p-3">
+                                <p class="text-lg font-black text-blue-400">--</p>
+                                <p class="text-[9px] font-bold uppercase tracking-widest text-slate-500">Leads</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border border-blue-500/35 bg-blue-600 rounded-lg overflow-hidden shadow-[0_30px_90px_rgba(37,99,235,0.28)]">
+                    <div class="aspect-[16/10] bg-blue-950/40 border-b border-white/15 flex items-center justify-center text-center px-6">
+                        <div>
+                            <p class="text-blue-100 text-[10px] font-black uppercase tracking-[0.28em] mb-3">Analytics Proof</p>
+                            <p class="text-white text-xl font-black uppercase italic leading-none">Content Reach</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-4 mb-5">
+                            <span class="text-[10px] font-black uppercase tracking-widest text-blue-100">Instagram / Reels</span>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-white/55">Views / Reach</span>
+                        </div>
+                        <h6 class="text-4xl md:text-5xl text-white font-black italic leading-none mb-5"><span class="counter" data-target="2">0</span>M+</h6>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-white/75 mb-5">Content Impressions</p>
+                        <div class="grid grid-cols-2 gap-3 text-center">
+                            <div class="bg-white/10 border border-white/15 rounded-lg p-3">
+                                <p class="text-lg font-black text-white">--%</p>
+                                <p class="text-[9px] font-bold uppercase tracking-widest text-white/60">Watch Rate</p>
+                            </div>
+                            <div class="bg-white/10 border border-white/15 rounded-lg p-3">
+                                <p class="text-lg font-black text-white">--</p>
+                                <p class="text-[9px] font-bold uppercase tracking-widest text-white/60">Saves</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border border-white/10 bg-white/[0.045] rounded-lg overflow-hidden">
+                    <div class="aspect-[16/10] bg-slate-900 border-b border-white/10 flex items-center justify-center text-center px-6">
+                        <div>
+                            <p class="text-blue-400 text-[10px] font-black uppercase tracking-[0.28em] mb-3">Funnel Proof</p>
+                            <p class="text-white text-xl font-black uppercase italic leading-none">Conversion Result</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-4 mb-5">
+                            <span class="text-[10px] font-black uppercase tracking-widest text-blue-400">Google / LinkedIn</span>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-slate-500">B2B / Search</span>
+                        </div>
+                        <h6 class="text-4xl md:text-5xl text-white font-black italic leading-none mb-5"><span class="counter" data-target="100">0</span>%</h6>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-5">Performance Focused</p>
+                        <div class="grid grid-cols-2 gap-3 text-center">
+                            <div class="bg-white/5 border border-white/10 rounded-lg p-3">
+                                <p class="text-lg font-black text-blue-400">--</p>
+                                <p class="text-[9px] font-bold uppercase tracking-widest text-slate-500">CPL</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded-lg p-3">
+                                <p class="text-lg font-black text-blue-400">--%</p>
+                                <p class="text-[9px] font-bold uppercase tracking-widest text-slate-500">Conv.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-white/10 bg-white/[0.04] rounded-lg p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+                <p class="text-slate-300 text-sm md:text-base font-semibold leading-relaxed">
+                    Add your real ad dashboard screenshots, leads, ROAS, CPL, reach and conversion proof here to build trust instantly.
+                </p>
+                <a href="https://wa.me/919243944410" class="inline-flex justify-center bg-white text-slate-950 px-6 py-4 rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-blue-600 hover:text-white transition">
+                    View Results
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 md:py-32 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12 md:mb-20">
+            <span class="text-blue-600 font-black uppercase tracking-widest text-xs">Core Expertise</span>
+            <h3 class="text-3xl md:text-5xl font-black mt-4 uppercase italic tracking-tighter underline decoration-blue-600 underline-offset-8">Scale Your Revenue</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+            <div class="service-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem]">
+                <div class="icon-box w-12 h-12 md:w-16 md:h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-2xl md:text-3xl mb-8 transition-all">📈</div>
+                <h4 class="text-xl font-black mb-4 uppercase italic leading-tight text-blue-600">Performance Marketing</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">Direct-response Meta Ads, Google Ads and LinkedIn Ads built to improve ROAS, lead quality and sales volume.</p>
+            </div>
+            <div class="service-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem]">
+                <div class="icon-box w-12 h-12 md:w-16 md:h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-2xl md:text-3xl mb-8 transition-all">📸</div>
+                <h4 class="text-xl font-black mb-4 uppercase italic leading-tight text-blue-600">Content Strategy</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">From viral Reels to product photography, we create assets that stop the scroll and build trust.</p>
+            </div>
+            <div class="service-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem]">
+                <div class="icon-box w-12 h-12 md:w-16 md:h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-2xl md:text-3xl mb-8 transition-all">⚙️</div>
+                <h4 class="text-xl font-black mb-4 uppercase italic leading-tight text-blue-600 text-nowrap">Brand Management</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">End-to-end management of your digital presence, turning followers into loyal advocates.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="py-16 md:py-32 bg-white px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h3 class="text-3xl md:text-4xl font-black mb-12 italic uppercase tracking-tighter">Success Case Studies</h3>
+            <div class="case-study-track flex md:grid md:grid-cols-3 gap-6 md:gap-10">
+                <div class="case-study-card shrink-0 md:shrink rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden aspect-[9/16] bg-black shadow-xl">
+                    <iframe width="405" height="720" src="https://www.youtube.com/embed/zbdm78XyJLg?si=F2aISBdtmSsxNzJQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="case-study-card featured shrink-0 md:shrink rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden aspect-[9/16] bg-black shadow-xl border-4 border-blue-600 md:scale-105">
+                    <iframe width="405" height="720" src="https://www.youtube.com/embed/zbdm78XyJLg?si=F2aISBdtmSsxNzJQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="case-study-card shrink-0 md:shrink rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden aspect-[9/16] bg-black shadow-xl">
+                    <iframe width="405" height="720" src="https://www.youtube.com/embed/zbdm78XyJLg?si=F2aISBdtmSsxNzJQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="md:hidden flex justify-center gap-4 mt-5" aria-label="Video controls">
+                <button type="button" class="case-study-arrow" onclick="scrollCaseStudies(-1)" aria-label="Previous video">&lsaquo;</button>
+                <button type="button" class="case-study-arrow" onclick="scrollCaseStudies(1)" aria-label="Next video">&rsaquo;</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-16 md:py-32 bg-slate-50 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-10">
+                <span class="text-blue-600 font-black uppercase tracking-widest text-xs">Client Wins</span>
+                <h3 class="text-3xl md:text-5xl font-black mt-4 uppercase italic tracking-tighter">Real Success Stories</h3>
+            </div>
+            <div class="testimonial-shell">
+            <div id="testimonial-container">
+                <div class="testimonial-slide active">
+                    <div class="flex justify-center mb-8">
+                        <div class="testimonial-avatar w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white overflow-hidden shadow-2xl">
+                            <img src="nkd logo.jpg" class="w-full h-full object-cover" alt="Client 1">
+                        </div>
+                    </div>
+                    <p class="testimonial-quote text-xl md:text-3xl font-bold mb-8 italic leading-relaxed text-slate-800">"Piyush ne hamare brand ko zero se scale karne mein help ki. Unka narrative style ads mein killer hai."</p>
+                    <h5 class="text-blue-600 font-black uppercase tracking-widest text-[12px]">— Purjit Jain , NKD Group</h5>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="flex justify-center mb-8">
+                        <div class="testimonial-avatar w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white overflow-hidden shadow-2xl">
+                            <img src="dentask logo.JPG" class="w-full h-full object-cover" alt="Client 2">
+                        </div>
+                    </div>
+                    <p class="testimonial-quote text-xl md:text-3xl font-bold mb-8 italic leading-relaxed text-slate-800">"High-intent patient flow for my clinic has skyrocketed. Truly the best in performance marketing."</p>
+                    <h5 class="text-blue-600 font-black uppercase tracking-widest text-[12px]">— Dr Zulfikar - Indore dental Clinic</h5>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="flex justify-center mb-8">
+                        <div class="testimonial-avatar w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white overflow-hidden shadow-2xl">
+                            <img src="IMG_9914.jpg" class="w-full h-full object-cover" alt="Client 2">
+                        </div>
+                    </div>
+                    <p class="testimonial-quote text-xl md:text-3xl font-bold mb-8 italic leading-relaxed text-slate-800">"High-intent patient flow for my clinic has skyrocketed. Truly the best in performance marketing."</p>
+                    <h5 class="text-blue-600 font-black uppercase tracking-widest text-[12px]">— raul - solove solution, New York</h5>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="flex justify-center mb-8">
+                        <div class="testimonial-avatar w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white overflow-hidden shadow-2xl">
+                            <img src="shlay.jpg" class="w-full h-full object-cover" alt="Client 2">
+                        </div>
+                    </div>
+                    <p class="testimonial-quote text-xl md:text-3xl font-bold mb-8 italic leading-relaxed text-slate-800">"High-intent patient flow for my clinic has skyrocketed. Truly the best in performance marketing."</p>
+                    <h5 class="text-blue-600 font-black uppercase tracking-widest text-[12px]">— shlay Clothing - Delhi</h5>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="flex justify-center mb-8">
+                        <div class="testimonial-avatar w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white overflow-hidden shadow-2xl">
+                            <img src="sonali logo.jpg" class="w-full h-full object-cover" alt="Client 3">
+                        </div>
+                    </div>
+                     <p class="testimonial-quote text-xl md:text-3xl font-bold mb-8 italic leading-relaxed text-slate-800">"High-intent patient flow for my clinic has skyrocketed. Truly the best in performance marketing."</p>
+                    <h5 class="text-blue-600 font-black uppercase tracking-widest text-[12px]">— Sonali Public School - Guna</h5>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="flex justify-center mb-8">
+                        <div class="testimonial-avatar w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white overflow-hidden shadow-2xl">
+                            <img src="bishnoi dental.jpg" class="w-full h-full object-cover" alt="Client 3">
+                        </div>
+                    </div>
+                     <p class="testimonial-quote text-xl md:text-3xl font-bold mb-8 italic leading-relaxed text-slate-800">"High-intent patient flow for my clinic has skyrocketed. Truly the best in performance marketing."</p>
+                    <h5 class="text-blue-600 font-black uppercase tracking-widest text-[12px]">— Dr. Raju Ram Bishnoi - Udaipur</h5>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="flex justify-center mb-8">
+                        <div class="testimonial-avatar w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white overflow-hidden shadow-2xl">
+                            <img src="furnito.jpg" class="w-full h-full object-cover" alt="Client 3">
+                        </div>
+                    </div>
+                    <p class="testimonial-quote text-xl md:text-3xl font-bold mb-8 italic leading-relaxed text-slate-800">"High-intent patient flow for my clinic has skyrocketed. Truly the best in performance marketing."</p>
+                    <h5 class="text-blue-600 font-black uppercase tracking-widest text-[12px]">— Manoj Gahlaut - Pune </h5>
+                </div>
+            </div>
+            <div class="testimonial-progress" aria-hidden="true"><span></span></div>
+            </div>
+            <div class="testimonial-controls" aria-label="Testimonial controls">
+                <button type="button" onclick="prevSlide()" class="testimonial-nav" aria-label="Previous testimonial">&lsaquo;</button>
+                <div class="testimonial-dots" id="testimonial-dots" aria-label="Choose testimonial"></div>
+                <button type="button" onclick="nextSlide()" class="testimonial-nav" aria-label="Next testimonial">&rsaquo;</button>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 bg-white text-center px-6 border-t">
+        <h3 class="text-4xl md:text-6xl font-black uppercase italic tracking-tighter mb-6">Ready to <span class="text-blue-600">Scale?</span></h3>
+        <p class="text-xl font-bold mb-10">+91 92439 44410</p>
+        <a href="https://wa.me/919243944410" class="bg-blue-600 text-white px-12 py-5 rounded-full font-black uppercase text-sm shadow-2xl hover:bg-black transition">Get in Touch Now</a>
+    </section>
+    <footer class="py-16 md:py-24 bg-slate-950 text-white text-center border-t border-white/5 px-6">
+        <div class="flex flex-wrap justify-center gap-10 mb-12 text-blue-500 font-bold uppercase text-[9px] tracking-widest">
+            <a href="https://instagram.com/piyushlokhande_" target="_blank">Instagram</a>
+            <a href="https://linkedin.com/in/piyush-lokhande-59828b215">LinkedIn</a>
+            <a href="https://www.youtube.com/@Piyushlokhande-yt1">YouTube</a>
+            <a href="mailto:piyushlokhande17@@gmail.com">Email</a>
+        </div>
+        <h4 class="text-xl md:text-2xl font-black italic mb-2 uppercase tracking-widest leading-none">piyushlokhande<span class="text-blue-500">.in</span></h4>
+        <p class="opacity-20 text-[8px] uppercase font-bold tracking-[0.6em] mt-8 italic leading-none">© 2026 Indore, India | Engineered for Growth</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script>
+        // Eye tracking system
+        document.addEventListener('mousemove', (e) => {
+            const pupils = document.querySelectorAll('.pupil');
+            pupils.forEach(pupil => {
+                const eye = pupil.parentElement;
+                const eyeRect = eye.getBoundingClientRect();
+                const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+                const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+                
+                const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
+                const distance = 3; // Pupil movement range
+                
+                const pupilX = Math.cos(angle) * distance;
+                const pupilY = Math.sin(angle) * distance;
+                
+                pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+            });
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const heroTl = gsap.timeline();
+            heroTl.to("#hero-title", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" })
+                  .to("#hero-sub", { opacity: 1, y: 0, duration: 0.6 }, "-=0.4")
+                  .to("#hero-btn", { opacity: 1, y: 0, duration: 0.6 }, "-=0.4");
+
+                  
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                gsap.to(counter, {
+                    innerText: target,
+                    duration: 1.5,
+                    snap: { innerText: 1 },
+                    scrollTrigger: {
+                        trigger: counter,
+                        start: "top 95%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+
+            if (document.querySelector('#typing-element')) {
+                new Typed('#typing-element', {
+                    strings: ['Digital', 'Revenue', 'Growth'],
+                    typeSpeed: 100,
+                    backSpeed: 50,
+                    loop: true,
+                    backDelay: 2000,
+                    showCursor: true
+                });
+            }
+        });
+
+        let currentSlide = 0;
+        let testimonialTimer;
+        const testimonialDelay = 7000;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dotsWrap = document.querySelector('#testimonial-dots');
+        const progressBar = document.querySelector('.testimonial-progress span');
+        const testimonialShell = document.querySelector('.testimonial-shell');
+
+        function resetTestimonialProgress() {
+            if (!progressBar) return;
+            progressBar.style.animation = 'none';
+            progressBar.offsetHeight;
+            progressBar.style.animation = '';
+        }
+
+        function renderTestimonialDots() {
+            if (!dotsWrap || slides.length === 0) return;
+            dotsWrap.innerHTML = '';
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = `testimonial-dot${index === currentSlide ? ' active' : ''}`;
+                dot.setAttribute('aria-label', `Show testimonial ${index + 1}`);
+                dot.addEventListener('click', () => showSlide(index));
+                dotsWrap.appendChild(dot);
+            });
+        }
+
+        function updateTestimonialDots() {
+            if (!dotsWrap) return;
+            dotsWrap.querySelectorAll('.testimonial-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function showSlide(index) {
+            if (slides.length === 0 || index === currentSlide) return;
+            const previousSlide = slides[currentSlide];
+            previousSlide.classList.remove('active');
+            previousSlide.classList.add('leaving');
+
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.remove('leaving');
+            slides[currentSlide].classList.add('active');
+            updateTestimonialDots();
+            resetTestimonialProgress();
+
+            window.setTimeout(() => {
+                previousSlide.classList.remove('leaving');
+            }, 750);
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function scrollCaseStudies(direction) {
+            const track = document.querySelector('.case-study-track');
+            const card = document.querySelector('.case-study-card');
+            if (!track || !card) return;
+            const gap = 18;
+            track.scrollBy({
+                left: direction * (card.getBoundingClientRect().width + gap),
+                behavior: 'smooth'
+            });
+        }
+
+        function startTestimonialAutoPlay() {
+            window.clearInterval(testimonialTimer);
+            testimonialTimer = window.setInterval(nextSlide, testimonialDelay);
+        }
+
+        renderTestimonialDots();
+        startTestimonialAutoPlay();
+
+        if (testimonialShell) {
+            testimonialShell.addEventListener('mouseenter', () => window.clearInterval(testimonialTimer));
+            testimonialShell.addEventListener('mouseleave', () => {
+                resetTestimonialProgress();
+                startTestimonialAutoPlay();
+            });
+        }
+    </script>
+
+</body>
+</html>
